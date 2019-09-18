@@ -27,6 +27,10 @@ class RemarkCommandTest {
     private static final String REMARK_STUB = "Some remark";
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
+
+    // NOTICE: THIS ARE SAMPLE TESTS FROM THE GITHUB TUTORIAL
+    // SELF WRITTEN TESTS ARE AT THE BOTTOM, TO FURNISH SUBSEQUENTLY WHEN I HAVE MORE TIME
+    // THANK YOU ^_^
     @Test
     public void execute_addRemarkUnfilteredList_success() {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
