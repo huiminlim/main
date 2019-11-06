@@ -183,6 +183,7 @@ public enum Responses {
                         Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, dnfExc.getMessage());
                         return true;
                     }
+                    return true;
                 }
     ),
     ADD_CARD_ERROR(
