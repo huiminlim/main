@@ -24,8 +24,11 @@
 <li><a href="#add-new-javascript-card-or-java-card">5.7. Add new Javascript card or Java Card</a></li>
 <li><a href="#editing-the-card-of-an-existing-deck-of-flashcards-code-edit-code">5.8. Editing the card of an existing deck of flashcards : <code>edit</code></a></li>
 <li><a href="#delete-the-card-of-an-existing-deck-of-flashcards-code-delete-code">5.9. Delete the card of an existing deck of flashcards : <code>delete</code></a></li>
-<li><a href="#start-test-with-flashcards-code-test-code">5.10. Start test with flashcards : <code>test</code></a></li>
-<li><a href="#viewing-user-statistics-code-stats-code">5.11. Viewing user statistics : <code>stats</code></a></li>
+<li><a href="#undo-the-last-alteration-to-a-deck-code-undo-code">5.10. Undo the last alteration to a deck : <code>undo</code></a></li>
+<li><a href="#redoes-the-last-undo-code-redo-code">5.11. Redoes the last undo : <code>redo</code></a></li>
+<li><a href="#start-test-with-flashcards-code-test-code">5.12. Start test with flashcards : <code>test</code></a></li>
+<li><a href="#viewing-user-statistics-code-stats-code">5.13. Viewing user statistics : <code>stats</code></a></li>
+<li><a href="#quit-flashcard-pro-code-quit-code">5.14. Quit FlashCard Pro : <code>quit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -81,7 +84,7 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>flashcardpro.jar</code> <a href="https://github.com/AY1920S1-CS2103-F09-2/main/releases">here</a>.</p>
+<p>Download the latest <code>FlashCardPro.jar</code> <a href="https://github.com/AY1920S1-CS2103-F09-2/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -122,6 +125,23 @@
 </li>
 <li>
 <p>Commands are case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command History</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After keying in a command, press up and down arrow keys to navigate your command history.</p>
+</li>
+<li>
+<p>If in multiline editing mode, press (Ctrl+d) to submit the multiline text</p>
 </li>
 </ul>
 </div>
@@ -170,7 +190,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Displays the commands available for use in FlashCard Pro.</p>
+<p>Displays the User Guide for reference in FlashCard Pro.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -472,7 +492,7 @@ FlashCard Pro recommends createing a folder in desktop named <code>flashcardpro<
 <p>The edit command allows the user to edit flashcards in any existing deck.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit deck/DECK_NAME index/INDEX [front/FRONT_TEXT] [back/BACK_TEXT] [choiceIndex/CHOICE_INDEX] [choice/CHOICE_TEXT]</code></p>
+<p>Format: <code>edit deck/DECK_NAME index/CARD_INDEX [front/FRONT_TEXT] [back/BACK_TEXT] [choiceIndex/CHOICE_INDEX] [choice/CHOICE_TEXT]</code></p>
 </div>
 <div class="paragraph">
 <p>Note:</p>
@@ -492,14 +512,14 @@ FlashCard Pro recommends createing a folder in desktop named <code>flashcardpro<
 </div>
 </li>
 <li>
-<p>The <code>INDEX</code> refers to the index of a card in the deck.</p>
+<p>The <code>CARD_INDEX</code> refers to the index of a card in the deck.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>INDEX</code> must be a valid integer from 1, 2, &#8230;&#8203;, Number of cards in deck.</p>
+<p><code>CARD_INDEX</code> must be a valid integer from 1, 2, &#8230;&#8203;, Number of cards in deck.</p>
 </li>
 <li>
-<p>If the <code>INDEX</code> is invalid, there will be an error message and no card will be edited.</p>
+<p>If the <code>CARD_INDEX</code> is invalid, there will be an error message and no card will be edited.</p>
 </li>
 </ul>
 </div>
@@ -584,15 +604,52 @@ FlashCard Pro will not be responsible if the editing of an answer choice lead to
 </div>
 </div>
 <div class="sect2">
-<h3 id="start-test-with-flashcards-code-test-code"><a class="link" href="#start-test-with-flashcards-code-test-code">5.10. Start test with flashcards : <code>test</code></a></h3>
+<h3 id="undo-the-last-alteration-to-a-deck-code-undo-code"><a class="link" href="#undo-the-last-alteration-to-a-deck-code-undo-code">5.10. Undo the last alteration to a deck : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Starts a test with a deck of flashcards, with the choice of an untimed test (timed mode will be added in <code>v1.4</code>)</p>
+<p>This allows you to undo any changed you may have made to any deck. This includes the creation of a new deck, the addition/edit of any cards and the deletion of cards or decks.</p>
 </div>
 <div class="paragraph">
-<p>(TBC)</p>
+<p>Format: <code>undo</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>test deck/DECK_NAME [duration/TIME_LIMIT_ALLOWED]</code> (to be implemented in <code>v1.4</code>)</p>
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>undo</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoes-the-last-undo-code-redo-code"><a class="link" href="#redoes-the-last-undo-code-redo-code">5.11. Redoes the last undo : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>This allows you to redo any undo that you had previously done. Please note that any alteration of a recovered deck from an Undo command will also reset the Redo history.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>redo</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="start-test-with-flashcards-code-test-code"><a class="link" href="#start-test-with-flashcards-code-test-code">5.12. Start test with flashcards : <code>test</code></a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Starts a test with a deck of flashcards, with the choice of a timed or un-timed test mode, with the duration specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>test deck/DECK_NAME duration/TIME_LIMIT</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -600,7 +657,7 @@ FlashCard Pro will not be responsible if the editing of an answer choice lead to
 <div class="ulist">
 <ul>
 <li>
-<p><code>test deck/science_deck</code><br></p>
+<p><code>test deck/science_deck duration/0</code></p>
 </li>
 </ul>
 </div>
@@ -610,25 +667,114 @@ FlashCard Pro will not be responsible if the editing of an answer choice lead to
 <div class="ulist">
 <ul>
 <li>
-<p><code>test duration/50 deck/science_deck</code><br></p>
+<p><code>test deck/science_deck duration/100</code><br></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Starts a timed test of 50 seconds with the deck of cards, <code>science_deck</code></p>
+<p>Starts a timed test of 100 seconds with the deck of cards, <code>science_deck</code></p>
+</div>
+<div class="paragraph">
+<p>Do note that only the results of the <strong>first attempt</strong> of each question will be counted in each test. Repeat attempts are allowed for a better learning experience, but will not contribute towards score.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="quit-test-code-stop-code"><a class="link" href="#quit-test-code-stop-code">5.10.1. Quit test: <code>stop</code></a></h4>
+<h4 id="get-next-card-code-next-code"><a class="link" href="#get-next-card-code-next-code">5.12.1. Get next card: <code>next</code></a></h4>
 <div class="paragraph">
-<p>Exits the test process when the user is in test mode.<br></p>
+<p>Gets the next card in the test deck.</p>
 </div>
 <div class="paragraph">
-<p>Exams will also terminate automatically upon running out of cards in the test deck. This will trigger a popup with the results of the test.</p>
+<p>If there are no more cards, will trigger a popup with test results.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-previous-card-code-prev-code"><a class="link" href="#get-previous-card-code-prev-code">5.12.2. Get previous card: <code>prev</code></a></h4>
+<div class="paragraph">
+<p>Gets the previous card in the test deck.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="quit-test-code-exit-code"><a class="link" href="#quit-test-code-exit-code">5.12.3. Quit test: <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits the test process when the user is in test mode.</p>
+</div>
+<div class="paragraph">
+<p>Exams will also terminate automatically upon running out of cards in the test deck.</p>
+</div>
+<div class="paragraph">
+<p>Triggers a popup with the results of the test.</p>
+</div>
+<div class="paragraph">
+<p>Do note that premature ending of a test will still count towards your Statistics.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code"><a class="link" href="#front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code">5.12.4. Front-Back Cards: <code>front</code>, <code>back</code>, <code>correct</code>, <code>wrong</code></a></h4>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Users should look at the question on the front of the card and think of their answer.</p>
+</li>
+<li>
+<p>Once they have their answer, they can type <code>back</code> to view the answer on the back on the card.</p>
+</li>
+<li>
+<p>They will then be able to type <code>correct</code> or <code>wrong</code> to count their results.</p>
+</li>
+<li>
+<p>They can type <code>front</code> when they are on the card back to relook at the question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="multiple-choice-cards-code-index_of_correct_answer-code-code-front-code"><a class="link" href="#multiple-choice-cards-code-index_of_correct_answer-code-code-front-code">5.12.5. Multiple Choice Cards: <code>&lt;INDEX_OF_CORRECT_ANSWER&gt;</code>, <code>front</code></a></h4>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon loading the card, users will be presented with the question and several choices.</p>
+</li>
+<li>
+<p>Users will be able to key in their choice into the command bar, with the top most option as 1 and increasing downwards. Do note only numbers are accepted.</p>
+</li>
+<li>
+<p>Keying in the answer will automatically flip the card and evaluate the answer. Users can then use <code>front</code> to relook at the question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="java-javascript-cards-code-code-code"><a class="link" href="#java-javascript-cards-code-code-code">5.12.6. Java/Javascript Cards: <code>code</code></a></h4>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon loading the card, users will be presented with a coding question.</p>
+</li>
+<li>
+<p>They can then type <code>code</code> to launch the appropriate Java/Javascript coding playground to code their programs.</p>
+</li>
+<li>
+<p>Upon running their programs, if they pass all test cases, their results will automatically be counted.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-user-statistics-code-stats-code"><a class="link" href="#viewing-user-statistics-code-stats-code">5.11. Viewing user statistics : <code>stats</code></a></h3>
+<h3 id="viewing-user-statistics-code-stats-code"><a class="link" href="#viewing-user-statistics-code-stats-code">5.13. Viewing user statistics : <code>stats</code></a></h3>
 <div class="paragraph">
 <p>Opens a new window to shows your <strong>usage statistics</strong>, such as time spent and list of login sessions over time. A <strong>quick summary of the decks</strong>, showing the number of cards, number of test sessions and average score, is also provided for reference.</p>
 </div>
@@ -681,6 +827,25 @@ Displays the overview of time spent reviewing the deck <code>science_deck</code>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="quit-flashcard-pro-code-quit-code"><a class="link" href="#quit-flashcard-pro-code-quit-code">5.14. Quit FlashCard Pro : <code>quit</code></a></h3>
+<div class="paragraph">
+<p>Leaves FlashCard Pro application.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>quit</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>quit</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -689,6 +854,18 @@ Displays the overview of time spent reviewing the deck <code>science_deck</code>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another computer?<br>
 <strong>A</strong>: Install the app in the other computer. Copy the JSON files of any decks you would like to transfer into the <code>data</code> folder of the app.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: I accidentally deleted a deck! What can I do now?<br>
+<strong>A</strong>: You can just use the Undo command to recover the lost deck!</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How many times can I use the Undo command sequentially?<br>
+<strong>A</strong>: The Undo command can be used to undo all deck alterations for this session. However, if you quit out of the app and reopen it, you will erase your history of Undos!</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: If I use Undo and make changes to an old version of a deck, will redo recover my original deck before the Undo command?<br>
+<strong>A</strong>: Unfortunately, the original deck before the Undo is unrecoverable. As such, please be mindful of making any changes to a recovered deck as this will erase any version of decks before the Undo!</p>
 </div>
 </div>
 </div>
@@ -699,6 +876,7 @@ Displays the overview of time spent reviewing the deck <code>science_deck</code>
 <ul>
 <li>
 <p><strong>help</strong> <code>help [command/COMMAND_NAME]</code><br>
+e.g. <code>help</code>
 e.g. <code>help command/view</code></p>
 </li>
 <li>
@@ -708,10 +886,6 @@ e.g. <code>help command/view</code></p>
 <p><strong>export</strong> : <code>export deck/DECK_NAME FILE_NAME</code></p>
 </li>
 <li>
-<p><strong>stats</strong> : <code>stats [deck/DECK_NAME]</code><br>
-e.g. <code>stats deck/science_deck</code></p>
-</li>
-<li>
 <p><strong>view</strong> : <code>view [deck/DECK_NAME]</code><br>
 e.g. <code>view deck/science_deck</code></p>
 </li>
@@ -719,17 +893,124 @@ e.g. <code>view deck/science_deck</code></p>
 <p><strong>create</strong> : <code>create deck/DECK_NAME</code></p>
 </li>
 <li>
-<p><strong>test</strong> : <code>test [duration/TIME_LIMIT_ALLOWED] deck/DECK_NAME</code><br>
-e.g. <code>test deck/science_deck</code></p>
+<p><strong>add</strong> - only applicable for Front-Back Cards and Multiple Choice Cards</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>add FrontBack:</strong> <code>add deck/DECK_NAME front/CARD_FRONT back/CARD_BACK [priority/HIGH_OR_LOW]</code><br></p>
 </li>
 <li>
-<p><strong>exit</strong> : <code>exit</code></p>
-</li>
-<li>
-<p><strong>edit</strong> : <code>edit deck/DECK_NAME action/DESIRED_ACTION [index/CARD_INDEX] [front/NEW_FRONT_TEXT] [back/NEW_BACK_TEXT]</code><br>
-e.g. <code>edit deck/science_deck action/edit index/1 front/what is a cell back/a cell is a building block</code></p>
+<p><strong>add MCQ:</strong> <code>add deck/DECK_NAME front/CARD_FRONT back/INDEX_OF_CORRECT_OPTION choice/CHOICE_A choice/CHOICE_B [priority/HIGH_OR_LOW]</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 06:30:23 UTC</div></div></div></body></html>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>edit</strong> - only applicable for Front-Back Cards and Multiple Choice Cards</p>
+</li>
+<li>
+<p><code>edit deck/DECK_NAME index/CARD_INDEX [front/NEW_FRONT_TEXT] [back/NEW_BACK_TEXT] [choiceIndex/CHOICE_INDEX] [choice/CHOICE_TEXT]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit deck/science_deck action/edit index/1 front/what is a cell back/a cell is a building block</code></p>
+</li>
+<li>
+<p><strong>undo</strong> : <code>undo</code></p>
+</li>
+<li>
+<p><strong>redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>test</strong> : <code>test deck/DECK_NAME duration/TIME_LIMIT_ALLOWED</code><br>
+e.g. <code>test deck/science_deck duration/0</code><br>
+e.g. <code>test deck/science_deck duration/100</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>While in TEST_MODE:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>next card</strong>: <code>next</code></p>
+</li>
+<li>
+<p><strong>previous card</strong>: <code>prev</code></p>
+</li>
+<li>
+<p><strong>exit test mode</strong>: <code>exit</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Front Back Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>see back of card: <code>back</code></p>
+</li>
+<li>
+<p>correct answer: <code>correct</code></p>
+</li>
+<li>
+<p>wrong answer: <code>wrong</code></p>
+</li>
+<li>
+<p>see question: <code>front</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Multiple Choice Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>indicate choice: <code>&lt;INDEX_OF_CORRECT_ANSWER&gt;</code> which must be a positive integer between 1 and the total number of choices</p>
+</li>
+<li>
+<p>see question: <code>front</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Java/Javascript Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>open coding playground: <code>code</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>stats</strong> : <code>stats [deck/DECK_NAME]</code><br>
+e.g. <code>stats deck/science_deck</code></p>
+</li>
+<li>
+<p><strong>quit</strong> : <code>quit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:29:34 UTC</div></div></div></body></html>
