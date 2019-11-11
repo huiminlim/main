@@ -36,10 +36,7 @@
 <p>Allow users to test the cards in any order where they can skip to later questions and come back to skipped ones later on.</p>
 </li>
 <li>
-<p>Stores user attempts and individual card results in each card.</p>
-</li>
-<li>
-<p>Allows users to review cards at the end of the test and even repeat them to get the correct answer (though it will not contribute to their score if previously attempted).</p>
+<p>Allows users to review cards at the end of the test and even repeat them to get the correct answer (though it will not contribute to their score).</p>
 </li>
 <li>
 <p>Results will be shown to the user at the end of the test.</p>
@@ -48,7 +45,7 @@
 </div>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly by adding to its functionality because users can now do more with our application and hence derive more customer satisfaction out of it.</p>
+<p>Justification: This feature improves the product significantly by adding to its functionality because it makes FlashCard Pro more than just a database for FlashCards by having some interactivity with the user. Users will be able to do self-learning with this added functionality.</p>
 </li>
 <li>
 <p>Highlights:</p>
@@ -70,18 +67,24 @@
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=huiminlim&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">Functional code</a>][<a href="https://github.com/AY1920S1-CS2103-F09-2/main/tree/master/src/test/java/dream/fcard/model">Test code</a>]</p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shawnp&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByAuthors&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=shawnpunchew11&amp;tabRepo=AY1920S1-CS2103-F09-2%2Fmain%5Bmaster%5D">Functional code</a>][<a href="https://github.com/AY1920S1-CS2103-F09-2/main/tree/master/src/test/java/dream/fcard/logic/exam">Test code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Testing:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Alerted team about bugs found in issue tracker: <a href="https://github.com/AY1920S1-CS2103-F09-2/main/issues/326">#326</a></p>
+</li>
+<li>
+<p>Did product testing to ensure that the test mechanism was bug-free, along with other features and GUI, and various system integration tests.</p>
+</li>
+<li>
+<p>Spent a great deal of time trying to fix our CI environment because our project suddenly failed Travis</p>
 </li>
 </ul>
 </div>
@@ -91,15 +94,21 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Wrote additional tests (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote additional tests (Please refer to [test code] link above.)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>Documentation:</p>
+</li>
+<li>
+<p>Documentation:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Did documentation in Developer Guide. (See <a href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a> below)</p>
+</li>
 <li>
 <p>Maintained the Command List Summary (See Section 7 of <a href="#contributions-to-the-user-guide">Contributions to the User Guide</a> below)</p>
 </li>
@@ -110,9 +119,6 @@
 <p>Community:</p>
 <div class="ulist">
 <ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S1-CS2103T-F13-2/main/pull/205">#205</a>, <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/91">#91</a></p>
-</li>
 <li>
 <p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/167">#167</a>)</p>
 </li>
@@ -141,6 +147,11 @@
 </table>
 <div class="sect2">
 <h3 id="start-test-with-flashcards-code-test-code"><a class="link" href="#start-test-with-flashcards-code-test-code">Start test with flashcards : <code>test</code></a></h3>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/StartTestCommand.png" alt="StartTestCommand" width="650">
+</div>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -194,21 +205,43 @@
 </div>
 <div class="sect3">
 <h4 id="quit-test-code-exit-code"><a class="link" href="#quit-test-code-exit-code">Quit test: <code>exit</code></a></h4>
-<div class="paragraph">
-<p>Exits the test process when the user is in test mode.</p>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ExitCommand.png" alt="ExitCommand" width="650">
+</div>
 </div>
 <div class="paragraph">
-<p>Exams will also terminate automatically upon running out of cards in the test deck.</p>
+<p>Exits test mode.</p>
 </div>
 <div class="paragraph">
 <p>Triggers a popup with the results of the test.</p>
 </div>
 <div class="paragraph">
-<p>Do note that premature ending of a test will still count towards your Statistics.</p>
+<p>Popup will also automatically be triggered upon reaching the end of the deck.</p>
+</div>
+<div class="paragraph">
+<p>However, upon reaching the end of the deck, the user will be able to review and reattempt questions (though it will not count towards the user&#8217;s score)</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Do note that premature ending of a test will still count towards your User Statistics.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code"><a class="link" href="#front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code">Front-Back Cards: <code>front</code>, <code>back</code>, <code>correct</code>, <code>wrong</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FrontBack.png" alt="FrontBack">
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -220,7 +253,7 @@
 <p>Once they have their answer, they can type <code>back</code> to view the answer on the back on the card.</p>
 </li>
 <li>
-<p>They will then be able to type <code>correct</code> or <code>wrong</code> to count their results.</p>
+<p>Once on the card back, one can type <code>correct</code> or <code>wrong</code> to count their results, which will automatically take them to the next question.</p>
 </li>
 <li>
 <p>They can type <code>front</code> when they are on the card back to relook at the question.</p>
@@ -232,6 +265,11 @@
 </div>
 <div class="sect3">
 <h4 id="multiple-choice-cards-code-index_of_correct_answer-code-code-front-code"><a class="link" href="#multiple-choice-cards-code-index_of_correct_answer-code-code-front-code">Multiple Choice Cards: <code>&lt;INDEX_OF_CORRECT_ANSWER&gt;</code>, <code>front</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MCQCard.png" alt="MCQCard">
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -243,7 +281,7 @@
 <p>Users will be able to key in their choice into the command bar, with the top most option as 1 and increasing downwards. Do note only numbers are accepted.</p>
 </li>
 <li>
-<p>Keying in the answer will automatically flip the card and evaluate the answer. Users can then use <code>front</code> to relook at the question.</p>
+<p>Keying in the answer will automatically flip the card and evaluate the answer. Users can then use <code>front</code> to relook at the question or <code>next</code> to go to the next question.</p>
 </li>
 </ul>
 </div>
@@ -252,6 +290,11 @@
 </div>
 <div class="sect3">
 <h4 id="java-javascript-cards-code-code-code"><a class="link" href="#java-javascript-cards-code-code-code">Java/Javascript Cards: <code>code</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/JsJavaCard.png" alt="JsJavaCard">
+</div>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="ulist">
@@ -264,6 +307,9 @@
 </li>
 <li>
 <p>Upon running their programs, if they pass all test cases, their results will automatically be counted.</p>
+</li>
+<li>
+<p>Users can then type <code>next</code> to go to the next question.</p>
 </li>
 </ul>
 </div>
@@ -434,7 +480,7 @@ e.g. <code>stats deck/science_deck</code></p>
 <div class="sect2">
 <h3 id="test"><a class="link" href="#test">Test</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
 <p>The timed/untimed test is a exam mechanism whereby users can enter a test mode that allows users to test themselves using the various flashcards. Users will then be notified of their results at the end of the test and will also have the chance to review their answers and reattempt questions.</p>
 </div>
@@ -476,7 +522,7 @@ e.g. <code>stats deck/science_deck</code></p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Step 1. User keys in the command <code>test deck/DECK_NAME duratoin/DURATION_IN_SECONDS</code> (Eg. test deck/german duration/0)</p>
+<p>Step 1. User keys in the command <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code> (Eg. test deck/german duration/0)</p>
 </div>
 <div class="paragraph">
 <p>Step 2. If <code>DURATION_IN_SECONDS</code> is 0, untimed test will be initiated. Else, a timed test will be initiated.</p>
@@ -625,4 +671,4 @@ e.g. <code>stats deck/science_deck</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:29:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:02:45 UTC</div></div></div></body></html>
